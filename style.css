@@ -235,6 +235,27 @@ h1 {
   line-height: 1.55;
 }
 
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 18px 0 0;
+  color: rgba(255,255,255,.7);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hero-note span {
+  display: inline-grid;
+  width: 21px;
+  height: 21px;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffdb73;
+  color: var(--ink);
+  font-size: 13px;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -276,12 +297,12 @@ h1 {
 .section {
   width: min(calc(100% - 40px), var(--container));
   margin: 0 auto;
-  padding: 76px 0;
+  padding: 56px 0;
 }
 
 .section-heading {
   max-width: 680px;
-  margin-bottom: 38px;
+  margin-bottom: 28px;
 }
 
 .section-heading-wide {
@@ -380,7 +401,7 @@ h1 {
 .training {
   width: 100%;
   max-width: none;
-  padding: 72px max(20px, calc((100vw - var(--container)) / 2));
+  padding: 56px max(20px, calc((100vw - var(--container)) / 2));
   background: var(--ink);
   color: #fff;
 }
@@ -457,8 +478,8 @@ h1 {
 }
 
 .coach-card {
-  position: relative;
-  min-height: 440px;
+  display: grid;
+  grid-template-columns: minmax(190px, .72fr) 1fr;
   overflow: hidden;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -467,47 +488,148 @@ h1 {
   cursor: pointer;
 }
 
-.coach-card img {
+.coach-photo {
   width: 100%;
   height: 100%;
-  min-height: 440px;
+  min-height: 390px;
   object-fit: cover;
+  object-position: center top;
   transition: transform .5s ease;
 }
 
-.coach-card:hover img { transform: scale(1.04); }
+.coach-card:hover .coach-photo { transform: scale(1.035); }
 
-.coach-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,.86));
-}
-
-.coach-card div {
-  position: absolute;
-  z-index: 2;
-  left: 24px;
-  right: 24px;
-  bottom: 24px;
+.coach-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: clamp(22px, 3vw, 30px);
   color: #fff;
 }
 
-.coach-card p {
+.coach-content > p {
   margin-bottom: 10px;
   color: #ffdb73;
   font-weight: 900;
 }
 
 .coach-card h3 {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   font-family: "Oswald", Impact, sans-serif;
-  font-size: clamp(30px, 4vw, 48px);
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.04;
+  text-transform: none;
+}
+
+.coach-card span:not(.coach-more) {
+  color: rgba(255,255,255,.72);
+  line-height: 1.45;
+}
+
+.coach-card .coach-story {
+  display: block;
+  margin-top: 16px;
+  color: rgba(255,255,255,.62);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.first-visit {
+  padding-top: 46px;
+  padding-bottom: 46px;
+}
+
+.first-visit .section-heading {
+  max-width: 900px;
+}
+
+.first-visit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.first-visit-lead {
+  max-width: 860px;
+  margin: -10px 0 22px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.first-visit-card {
+  position: relative;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255,250,241,.76);
+  box-shadow: 0 14px 34px rgba(44, 31, 21, .07);
+}
+
+.visit-mark {
+  display: inline-flex;
+  width: fit-content;
+  color: var(--red);
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: 26px;
   line-height: 1;
+}
+
+.visit-visual {
+  position: relative;
+  height: 86px;
+  margin: 16px 0 18px;
+  display: grid;
+  place-items: end start;
+  padding: 14px;
+  border-radius: 6px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 20%, rgba(201,44,33,.2), transparent 28%),
+    linear-gradient(135deg, rgba(22,22,22,.08), rgba(255,250,241,.54));
+}
+
+.visit-visual::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 54px;
+  height: 54px;
+  border: 2px solid rgba(201,44,33,.34);
+  border-radius: 50%;
+}
+
+.visit-visual b {
+  position: relative;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.first-visit-card h3 {
+  margin: 0 0 10px;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: 30px;
+  line-height: 1.05;
   text-transform: uppercase;
 }
 
-.coach-card span { color: rgba(255,255,255,.72); }
+.first-visit-card p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.first-visit-card p:last-child { margin-bottom: 0; }
 
 .coach-more {
   display: inline-flex;
@@ -575,9 +697,7 @@ h1 {
   object-fit: cover;
 }
 
-.albums {
-  padding-top: 70px;
-}
+.albums { padding-top: 56px; }
 
 .album-grid {
   display: grid;
@@ -678,7 +798,7 @@ h1 {
   box-shadow: 0 30px 90px rgba(0,0,0,.36);
 }
 
-.coach-modal__dialog img {
+.coach-modal__dialog > img {
   width: 100%;
   height: 100%;
   min-height: 520px;
@@ -702,19 +822,146 @@ h1 {
   color: var(--red);
 }
 
-.coach-modal__body p:not(.eyebrow) {
+.coach-modal__text p {
   color: var(--muted);
   font-size: 18px;
   line-height: 1.7;
 }
 
+.coach-modal__text p + p {
+  margin-top: 14px;
+}
+
 .coach-modal__body blockquote {
-  margin: 26px 0 0;
+  margin: 0 0 24px;
   padding: 22px;
   border-left: 5px solid var(--red);
   background: rgba(201,44,33,.08);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(22px, 3vw, 34px);
+  font-style: italic;
   font-weight: 800;
-  line-height: 1.55;
+  line-height: 1.35;
+}
+
+.coach-modal__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0 0 28px;
+}
+
+.coach-modal__gallery figure {
+  position: relative;
+  min-width: 0;
+  height: 190px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #eee6d8;
+}
+
+.coach-modal__gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 5px;
+}
+
+.coach-modal__gallery button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.coach-modal__gallery figcaption {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  max-width: calc(100% - 16px);
+  padding: 6px 8px;
+  border-radius: 5px;
+  background: rgba(22,22,22,.72);
+  color: rgba(255,255,255,.9);
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.coach-modal__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.photo-viewer {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.photo-viewer.open {
+  display: flex;
+}
+
+.photo-viewer__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(0,0,0,.78);
+  backdrop-filter: blur(8px);
+  cursor: zoom-out;
+}
+
+.photo-viewer figure {
+  position: relative;
+  z-index: 1;
+  width: min(920px, 100%);
+  max-height: min(760px, calc(100svh - 40px));
+  margin: 0;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: 0 26px 80px rgba(0,0,0,.38);
+}
+
+.photo-viewer img {
+  width: 100%;
+  max-height: min(660px, calc(100svh - 150px));
+  object-fit: contain;
+  border-radius: 6px;
+  background: #efe5d5;
+}
+
+.photo-viewer figcaption {
+  margin-top: 10px;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.photo-viewer__close {
+  position: absolute;
+  z-index: 2;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 6px;
+  background: rgba(22,22,22,.86);
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .coach-modal__close {
@@ -994,6 +1241,7 @@ h1 {
   }
 
   .schedule-strip,
+  .first-visit-grid,
   .coach-grid,
   .contact-grid {
     grid-template-columns: 1fr;
@@ -1023,7 +1271,7 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .coach-modal__dialog img {
+  .coach-modal__dialog > img {
     height: 260px;
     min-height: 260px;
   }
@@ -1033,8 +1281,39 @@ h1 {
   .site-nav {
     top: 10px;
     width: calc(100% - 20px);
-    height: 58px;
-    padding: 7px 8px 7px 10px;
+    height: 62px;
+    padding: 7px 8px 7px 12px;
+    border-radius: 12px;
+    background: rgba(22,22,22,.78);
+  }
+
+  .site-nav.scrolled { top: 8px; }
+
+  .brand { gap: 8px; font-size: 15px; }
+
+  .menu-button {
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 9px;
+  }
+
+  .nav-links {
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    gap: 3px;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px;
+    box-shadow: 0 18px 44px rgba(0,0,0,.3);
+  }
+
+  .nav-links a {
+    padding: 14px 15px;
+    border-radius: 8px;
+    font-size: 16px;
   }
 
   .hero-layout,
@@ -1044,7 +1323,7 @@ h1 {
   }
 
   .section {
-    padding: 52px 0;
+    padding: 42px 0;
   }
 
   .brand img {
@@ -1052,10 +1331,16 @@ h1 {
     height: 34px;
   }
 
-  h1 { font-size: clamp(44px, 16vw, 70px); }
+  h1 {
+    max-width: 100%;
+    font-size: clamp(42px, 12.5vw, 58px);
+    line-height: .94;
+    letter-spacing: -.02em;
+    overflow-wrap: anywhere;
+  }
 
   .section-heading {
-    margin-bottom: 26px;
+    margin-bottom: 22px;
   }
 
   .section-heading h2,
@@ -1068,7 +1353,16 @@ h1 {
   }
 
   .hero-text {
+    max-width: 100%;
     font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .hero-note {
+    align-items: flex-start;
+    margin-top: 14px;
+    font-size: 12px;
+    line-height: 1.4;
   }
 
   .hero-actions,
@@ -1085,7 +1379,8 @@ h1 {
   .album-grid,
   .scoreboard,
   .gallery-row,
-  .contact-grid {
+  .contact-grid,
+  .first-visit-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1104,22 +1399,90 @@ h1 {
   }
 
   .training-card,
-  .coach-card,
-  .coach-card img,
   .album-card,
   .album-card img {
     min-height: 330px;
   }
 
+  .first-visit {
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+
+  .first-visit-lead {
+    margin: -6px 0 18px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .first-visit-card {
+    padding: 16px;
+  }
+
+  .visit-visual {
+    height: 72px;
+    margin: 14px 0 16px;
+  }
+
+  .first-visit-card h3 {
+    font-size: 27px;
+  }
+
+  .coach-grid { gap: 14px; }
+
+  .coach-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 0;
+    border-radius: 12px;
+    background: var(--ink);
+  }
+
+  .coach-photo {
+    width: 100%;
+    min-height: 0;
+    height: 390px;
+    object-position: center top;
+  }
+
+  .coach-content {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 18px;
+  }
+
+  .coach-content > p { margin-bottom: 8px; font-size: 12px; }
+
+  .coach-card h3 {
+    margin-bottom: 10px;
+    font-size: clamp(25px, 7vw, 34px);
+    line-height: 1.08;
+  }
+
+  .coach-card span:not(.coach-more) { font-size: 13px; line-height: 1.45; }
+
+  .coach-card .coach-story {
+    margin-top: 12px;
+    font-size: 12px;
+  }
+
+  .coach-more {
+    margin-top: 14px;
+    padding: 8px 11px;
+    font-size: 13px;
+  }
+
   .training {
-    padding: 52px 12px;
+    padding: 42px 12px;
   }
 
   .training-card h3 {
     font-size: 36px;
   }
 
-  .coach-card h3,
   .album-card h3 {
     font-size: 32px;
   }
@@ -1162,18 +1525,74 @@ h1 {
   }
 
   .coach-modal__dialog {
+    display: block;
     max-height: calc(100svh - 24px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .coach-modal__dialog > img {
+    height: min(46svh, 330px);
+    min-height: 0;
+    object-position: center top;
   }
 
   .coach-modal__body {
     padding: 24px;
+    overflow: visible;
   }
 
   .coach-modal__body h2 {
     font-size: 38px;
   }
 
-  .coach-modal__body p:not(.eyebrow) {
+  .coach-modal__text p {
     font-size: 16px;
+  }
+
+  .coach-modal__gallery {
+    gap: 10px;
+  }
+
+  .coach-modal__gallery figure {
+    height: 135px;
+  }
+
+  .coach-modal__actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  .coach-card {
+    display: block;
+  }
+
+  .coach-photo {
+    width: 100%;
+    height: 320px;
+    min-height: 320px;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+
+  .coach-content {
+    min-height: 0;
+    padding: 18px 18px 20px;
+  }
+
+  .coach-modal__gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .coach-modal__gallery figure {
+    height: 118px;
+  }
+
+  .first-visit-grid { grid-template-columns: 1fr; }
+
+  .coach-card h3 {
+    font-size: 32px;
   }
 }
