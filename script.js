@@ -15,6 +15,7 @@ const coachModalGroup = document.querySelector('#coachModalGroup');
 const photoViewer = document.querySelector('#photoViewer');
 const photoViewerImg = document.querySelector('#photoViewerImg');
 const photoViewerCaption = document.querySelector('#photoViewerCaption');
+let coachModalHistoryActive = false;
 
 function openPhotoViewer(src, alt, caption) {
   if (!photoViewer || !photoViewerImg || !photoViewerCaption) return;
@@ -108,14 +109,22 @@ function openCoachModal(card) {
   coachModal.classList.add('open');
   coachModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-open');
+  if (!coachModalHistoryActive) {
+    window.history.pushState({ coachModalOpen: true }, '');
+    coachModalHistoryActive = true;
+  }
 }
 
-function closeCoachModal() {
+function closeCoachModal({ fromHistory = false } = {}) {
   if (!coachModal) return;
   closePhotoViewer();
   coachModal.classList.remove('open');
   coachModal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('modal-open');
+  if (coachModalHistoryActive) {
+    coachModalHistoryActive = false;
+    if (!fromHistory) window.history.back();
+  }
 }
 
 document.querySelectorAll('.coach-card').forEach((card) => {
@@ -142,6 +151,12 @@ document.addEventListener('keydown', (event) => {
     return;
   }
   if (event.key === 'Escape') closeCoachModal();
+});
+
+window.addEventListener('popstate', () => {
+  if (coachModal?.classList.contains('open')) {
+    closeCoachModal({ fromHistory: true });
+  }
 });
 
 const observer = new IntersectionObserver((entries) => {
