@@ -4,7 +4,7 @@
   --paper: #f6f6f3;
   --surface: #ffffff;
   --ink: #17191c;
-  --muted: #6e7278;
+  --muted: #62666b;
   --line: #dedfdc;
   --line-dark: #c9cbc7;
   --red: #d62f2f;
@@ -179,7 +179,7 @@ h3 { font-size: clamp(1.5rem, 2.2vw, 2.15rem); }
 .trust-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .trust-item { min-height: 0; padding: 32px; background: var(--surface); }
 .trust-item:first-child { background: var(--red-soft); }
-.trust-item > span { color: var(--red); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.trust-item > span { color: var(--red-dark); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .trust-item h3 { margin: 70px 0 14px; max-width: 310px; }
 .trust-item p { max-width: 320px; color: var(--muted); font-size: 13px; }
 .albums { background: var(--surface); }
@@ -229,7 +229,7 @@ h3 { font-size: clamp(1.5rem, 2.2vw, 2.15rem); }
 .footer-nav > span { margin-bottom: 10px; color: #ff706a; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .footer-nav a { color: rgba(255,255,255,.58); font-size: 13px; }
 .footer-nav a:hover { color: #fff; }
-.footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.42); font-size: 11px; }
+.footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.68); font-size: 11px; }
 .footer-bottom a:hover { color: #fff; }
 
 .privacy, .coach-modal, .photo-viewer { position: fixed; inset: 0; z-index: 1100; display: grid; place-items: center; padding: 24px; opacity: 0; visibility: hidden; pointer-events: none; background: rgba(12, 14, 16, .72); transition: opacity .3s var(--ease), visibility .3s var(--ease); }
@@ -270,7 +270,7 @@ h3 { font-size: clamp(1.5rem, 2.2vw, 2.15rem); }
 
 .reveal { opacity: 0; transform: translateY(32px) scale(.985); transition: opacity .75s var(--ease) var(--reveal-delay, 0ms), transform .75s var(--ease) var(--reveal-delay, 0ms); }
 .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } .reveal, .benefits-slider.is-transitioning .benefits-visual img, .benefits-slider.is-transitioning .benefits-content > * { opacity: 1; transform: none; } }
 
 @media (max-width: 992px) {
   .site-nav { left: 20px; right: 20px; width: auto; transform: none; backdrop-filter: none; }
@@ -462,6 +462,9 @@ h3 { font-size: clamp(1.5rem, 2.2vw, 2.15rem); }
 .benefits-visual img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; cursor: zoom-in; filter: none !important; transform-origin: center; transition: opacity .35s var(--ease), transform .8s var(--ease); }
 .benefits-visual:hover img { transform: scale(1.025); }
 .benefits-content { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; min-width: 0; height: 100%; min-height: 0; overflow: visible; padding: clamp(34px, 5vw, 76px); background: var(--surface); }
+.benefits-content > * { transition: opacity .35s var(--ease), transform .35s var(--ease); }
+.benefits-slider.is-transitioning .benefits-visual img,
+.benefits-slider.is-transitioning .benefits-content > * { opacity: 0; transform: translateY(10px); }
 .benefits-number { color: var(--red); font-family: "Outfit", sans-serif; font-size: 15px; font-weight: 800; letter-spacing: .14em; }
 .benefits-label { margin-top: 14px; color: var(--ink); font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
 .benefits-content h3 { max-width: 520px; margin: 24px 0 18px; color: var(--ink); font-size: clamp(2.1rem, 4vw, 4.4rem); line-height: .93; overflow-wrap: normal; word-break: normal; }

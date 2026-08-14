@@ -37,14 +37,14 @@ const trainers = [
   {
     id: 'polina',
     name: 'Полина Александра Юрьевна',
-    position: 'Мастер спорта России',
+    position: 'Мастер спорта Международного класса России',
     image: 'media/alek.webp',
     tagline: 'ТРЕНЕР · СПОРТСМЕН · НАСТАВНИК',
-    intro: 'Мастер спорта России, 2 дан и многократная чемпионка международных и всероссийских соревнований.',
-    stats: [['МС', 'Россия', 'Мастер спорта России'], ['2 дан', 'черный пояс', 'Второй мастерский уровень чёрного пояса'], ['17+', 'лет в каратэ'], ['9+', 'лет тренерского стажа']],
+    intro: 'Мастер спорта Международного класса России, 2 дан и многократная чемпионка международных и всероссийских соревнований.',
+    stats: [['МСМК', 'Россия', 'Мастер спорта международного класса (МСМК) — это одно из высших спортивных званий в России и ряде стран СНГ, которое присваивается государством за выдающиеся достижения на мировой спортивной арене.'], ['2 дан', 'черный пояс', '2-й дан (Нидан) — это вторая мастерская степень в боевых искусствах, которая символизирует переход спортсмена от освоения базовой техники к глубокому пониманию сути единоборства.'], ['17+', 'лет в каратэ'], ['9+', 'лет тренерского стажа']],
     activity: ['Профессиональный тренер по всестилевому и WKC каратэ', 'Тренерский стаж — более 9 лет'],
     achievements: [
-      ['БРОНЗА', 'Чемпионат мира', '3-х кратная чемпионка мира'],
+      ['ЗОЛОТО', 'Чемпионат мира', '3-х кратная чемпионка мира'],
       ['ЗОЛОТО', 'Чемпионат России', '3-х кратная чемпионка России'],
       ['СЕРЕБРО', 'Кубок России', 'Серебряный призер'],
       ['ПРИЗЁР', 'Международные старты', 'Многократный победитель и призер']
@@ -74,7 +74,7 @@ const trainers = [
     image: 'media/Dim.webp',
     tagline: 'ТРЕНЕР · СПОРТСМЕН · НАСТАВНИК',
     intro: 'Профессиональный тренер по всестилевому и WKC каратэ, мастер спорта и обладатель 2 дана.',
-    stats: [['МС', 'всестилевое каратэ', 'Мастер спорта по всестилевому каратэ'], ['2 дан', 'черный пояс', 'Второй мастерский уровень чёрного пояса'], ['7+', 'лет тренерского стажа'], ['WKC', 'всестилевое каратэ', 'World Karate Confederation · международное направление спортивного каратэ']],
+    stats: [['МС', 'всестилевое каратэ', 'Мастер спорта (МС) — это высокое государственное спортивное звание, которое официально подтверждает профессиональный уровень спортсмена и его принадлежность к спортивной элите страны.'], ['2 дан', 'черный пояс', '2-й дан (Нидан) — это вторая мастерская степень в боевых искусствах, которая символизирует переход спортсмена от освоения базовой техники к глубокому пониманию сути единоборства.'], ['7+', 'лет тренерского стажа'], ['WKC', 'всестилевое каратэ', 'World Karate Confederation · международное направление спортивного каратэ']],
     activity: ['Тренер-преподаватель', 'Тренер по всестилевому и WKC каратэ', 'Тренерский стаж — 7+ лет'],
     achievements: [
       ['БРОНЗА', 'Чемпионат мира', 'Бронзовый призёр Чемпионата Мира'],
@@ -389,9 +389,12 @@ function closeCoachModal({ fromHistory = false } = {}) {
 document.querySelectorAll('.coach-card').forEach((card) => {
   const photo = card.querySelector('.coach-photo');
   photo?.addEventListener('error', () => photo.parentElement?.classList.add('is-placeholder'), { once: true });
-  card.addEventListener('click', () => openCoachModal(card));
+  card.addEventListener('click', (event) => {
+    event.preventDefault();
+    openCoachModal(card);
+  });
   card.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === ' ') {
       event.preventDefault();
       openCoachModal(card);
     }
@@ -446,13 +449,15 @@ const benefitText = document.querySelector('#benefitText');
 const benefitDetail = document.querySelector('#benefitDetail');
 const benefitTabs = [...document.querySelectorAll('.benefit-tab')];
 let activeBenefit = 0;
-let benefitTimer = null;
 let benefitTouchStart = 0;
+let benefitTransitionTimer = null;
 
 function switchBenefit(index, { immediate = false } = {}) {
   const nextIndex = (index + benefits.length) % benefits.length;
   const data = benefits[nextIndex];
   if (!data || !benefitImage || !benefitTitle) return;
+
+  if (benefitTransitionTimer) window.clearTimeout(benefitTransitionTimer);
 
   const update = () => {
     benefitImage.src = data.image;
@@ -465,44 +470,37 @@ function switchBenefit(index, { immediate = false } = {}) {
     benefitTabs.forEach((tab, tabIndex) => {
       const isActive = tabIndex === nextIndex;
       tab.classList.toggle('is-active', isActive);
-      tab.setAttribute('aria-selected', String(isActive));
     });
     activeBenefit = nextIndex;
-    benefitsSlider?.classList.add('benefit-content-ready');
   };
 
   if (immediate || !window.gsap || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    benefitsSlider?.classList.remove('is-transitioning');
     update();
     return;
   }
 
-  benefitsSlider?.classList.remove('benefit-content-ready');
-  window.setTimeout(update, 180);
-}
-
-function restartBenefitTimer() {
-  if (benefitTimer) window.clearInterval(benefitTimer);
-  benefitTimer = window.setInterval(() => switchBenefit(activeBenefit + 1), 9000);
+  benefitsSlider?.classList.add('is-transitioning');
+  benefitTransitionTimer = window.setTimeout(() => {
+    update();
+    requestAnimationFrame(() => benefitsSlider?.classList.remove('is-transitioning'));
+    benefitTransitionTimer = null;
+  }, 180);
 }
 
 benefitTabs.forEach((tab, index) => {
   tab.addEventListener('click', () => {
     switchBenefit(index);
-    restartBenefitTimer();
   });
 });
 
-benefitsSlider?.addEventListener('mouseenter', () => benefitTimer && window.clearInterval(benefitTimer));
-benefitsSlider?.addEventListener('mouseleave', restartBenefitTimer);
 benefitsSlider?.addEventListener('touchstart', (event) => { benefitTouchStart = event.changedTouches[0].clientX; }, { passive: true });
 benefitsSlider?.addEventListener('touchend', (event) => {
   const distance = event.changedTouches[0].clientX - benefitTouchStart;
   if (Math.abs(distance) < 45) return;
   switchBenefit(activeBenefit + (distance < 0 ? 1 : -1));
-  restartBenefitTimer();
 }, { passive: true });
 switchBenefit(0, { immediate: true });
-restartBenefitTimer();
 
 // Общий просмотр содержательных фотографий страницы. Фотографии внутри
 // модалки тренера остаются в её собственной gallery/photo-viewer логике.

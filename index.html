@@ -171,7 +171,7 @@
           <h2>Секция растёт вместе со своими спортсменами</h2>
           <p>У клуба нет придуманной легенды с громкими датами. Есть ежедневная работа: первые тренировки, первые старты, новые пояса и команда, которая остаётся рядом.</p>
         </div>
-        <div class="story-line" role="list" aria-label="Путь секции">
+        <div class="story-line">
           <div class="story-step"><span>01</span><div class="story-step__media"><img src="media/apple_zaglu.webp" alt="Первое знакомство с залом" loading="lazy" decoding="async"></div><div><b>Начало</b><p>Ребёнок впервые приходит в зал и знакомится с тренером, правилами и партнёрами.</p></div></div>
           <div class="story-step"><span>02</span><div class="story-step__media"><img src="media/IMG_6311.webp" alt="Тренировочный процесс клуба" loading="lazy" decoding="async"></div><div><b>Первые ученики</b><p>База, координация и привычка регулярно возвращаться к работе.</p></div></div>
           <div class="story-step"><span>03</span><div class="story-step__media"><img src="media/blagodarnosti.webp" alt="Спортивный путь клуба" loading="lazy" decoding="async"></div><div><b>Первые соревнования</b><p>Для тех, кто готов: опыт выхода на татами, волнения и честного результата.</p></div></div>
@@ -246,10 +246,10 @@
           </div>
         </div>
         <nav class="benefits-nav" aria-label="Что ребёнок уносит из зала">
-          <button class="benefit-tab is-active" type="button" data-benefit-index="0" aria-selected="true"><span>01</span><strong>Характер</strong></button>
-          <button class="benefit-tab" type="button" data-benefit-index="1" aria-selected="false"><span>02</span><strong>Общение</strong></button>
-          <button class="benefit-tab" type="button" data-benefit-index="2" aria-selected="false"><span>03</span><strong>Спорт</strong></button>
-          <button class="benefit-tab" type="button" data-benefit-index="3" aria-selected="false"><span>04</span><strong>Тело</strong></button>
+          <button class="benefit-tab is-active" type="button" data-benefit-index="0"><span>01</span><strong>Характер</strong></button>
+          <button class="benefit-tab" type="button" data-benefit-index="1"><span>02</span><strong>Общение</strong></button>
+          <button class="benefit-tab" type="button" data-benefit-index="2"><span>03</span><strong>Спорт</strong></button>
+          <button class="benefit-tab" type="button" data-benefit-index="3"><span>04</span><strong>Тело</strong></button>
         </nav>
       </div>
     </section>
@@ -278,14 +278,14 @@
         <p>Откройте карточку, чтобы узнать путь тренера, достижения и работу с воспитанниками.</p>
       </div>
       <div class="coach-grid">
-        <article class="coach-card" tabindex="0" role="button" data-coach-id="polina" aria-label="Открыть профиль тренера Полины Александры Юрьевны">
-          <div class="coach-photo-wrap"><img class="coach-photo" src="media/alek.webp" alt="Полина Александра Юрьевна" loading="lazy" decoding="async" width="760" height="900"></div>
-          <div class="coach-content"><p>Старший тренер</p><h3>Полина Александра Юрьевна</h3><span>2 дан · более 17 лет в каратэ</span><small class="coach-story">Чемпионка мира и России, тренер с опытом более 9 лет.</small><span class="coach-more">Подробнее</span></div>
-        </article>
-        <article class="coach-card" tabindex="0" role="button" data-coach-id="plohikh" aria-label="Открыть профиль тренера Плохих Дмитрия Юрьевича">
+        <a class="coach-card" href="#coachModal" data-coach-id="plohikh" aria-label="Открыть профиль тренера Плохих Дмитрия Юрьевича">
           <div class="coach-photo-wrap"><img class="coach-photo" src="media/Dim.webp" alt="Плохих Дмитрий Юрьевич" loading="lazy" decoding="async" width="760" height="900"></div>
           <div class="coach-content"><p>Президент Федерации каратэ WKC Курской области</p><h3>Плохих Дмитрий Юрьевич</h3><span>В каратэ с 8 лет</span><small class="coach-story">Помогает спортсменам сохранять путь, терпение и внутреннюю силу.</small><span class="coach-more">Подробнее</span></div>
-        </article>
+        </a>
+        <a class="coach-card" href="#coachModal" data-coach-id="polina" aria-label="Открыть профиль тренера Полины Александры Юрьевны">
+          <div class="coach-photo-wrap"><img class="coach-photo" src="media/alek.webp" alt="Полина Александра Юрьевна" loading="lazy" decoding="async" width="760" height="900"></div>
+          <div class="coach-content"><p>Старший тренер</p><h3>Полина Александра Юрьевна</h3><span>2 дан · более 17 лет в каратэ</span><small class="coach-story">Чемпионка мира и России, тренер с опытом более 9 лет.</small><span class="coach-more">Подробнее</span></div>
+        </a>
       </div>
     </section>
 
@@ -297,7 +297,7 @@
         </div>
         <p>Первое занятие помогает ребенку спокойно понять зал, тренера и формат группы. Без покупки кимоно, без спаррингов и без давления абонементом.</p>
       </div>
-      <div class="first-visit-grid" role="list" aria-label="Пять шагов первой тренировки">
+      <div class="first-visit-grid">
         <article class="first-visit-card">
           <span class="visit-mark">01</span>
           <h3>Знакомство</h3>
@@ -474,6 +474,11 @@
         </div>
       </div>
       <div class="contact-grid">
+        <a class="contact-tile" href="https://yandex.ru/maps/?text=Курск, ТЦ Пушкинский" target="_blank" rel="noreferrer">
+          <span>Адрес</span>
+          <b>ТЦ Пушкинский, 4 этаж</b>
+          <p>Вторник, четверг, суббота · 16:00-19:00</p>
+        </a>
         <a class="contact-tile contact-tile-main" href="tel:+79513119411">
           <span>Телефон</span>
           <b>+7 951 311-94-11</b>
@@ -484,10 +489,20 @@
           <b>VK клуба</b>
           <p>Новости, фото, объявления и запись на пробную тренировку.</p>
         </a>
-        <a class="contact-tile" href="https://yandex.ru/maps/?text=Курск, ТЦ Пушкинский" target="_blank" rel="noreferrer">
+         <a class="contact-tile" href="https://yandex.ru/maps/?text=Курск, ул. 50 лет Октября, 135" target="_blank" rel="noreferrer">
           <span>Адрес</span>
-          <b>ТЦ Пушкинский, 4 этаж</b>
+          <b>ул. 50 лет Октября, 135</b>
           <p>Вторник, четверг, суббота · 16:00-19:00</p>
+        </a>
+        <a class="contact-tile contact-tile-main" href="tel:+79290363256">
+          <span>Телефон</span>
+          <b>+7 929 036-32-56</b>
+          <p>Александра Юрьевна. Звонок или сообщение в удобное время.</p>
+        </a>
+        <a class="contact-tile" href="https://vk.ru/katsurokarate" target="_blank" rel="noreferrer">
+          <span>Сообщество</span>
+          <b>VK клуба</b>
+          <p>Новости, фото, объявления и запись на пробную тренировку.</p>
         </a>
       </div>
       <div class="contact-note">
