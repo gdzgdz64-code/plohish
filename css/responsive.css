@@ -1,0 +1,137 @@
+/* =========================================================
+   Responsive — consolidated layout rules
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  :root { --max: 1140px; --gutter: clamp(20px, 4vw, 48px); }
+  .primary-nav { gap: 20px; }
+  .hero-grid { gap: clamp(24px, 4vw, 48px); }
+  .hero-title { font-size: clamp(48px, 6.8vw, 92px); }
+}
+
+@media (max-width: 1080px) {
+  .primary-nav { display: none; }
+  .menu-toggle { display: flex; }
+  .header-actions .btn-accent { display: none; }
+  .hero { min-height: 0; padding-top: 126px; padding-bottom: 72px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 44px; }
+  .hero-left { max-width: 820px; }
+  .hero-title { max-width: 100%; font-size: clamp(56px, 10vw, 96px); }
+  .hero-right { align-self: auto; width: min(100%, 680px); }
+  .hero-photo { height: auto; min-height: 0; aspect-ratio: 16 / 10; }
+  .hero-side, .hero-photo-line { display: none; }
+  .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .audience-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .aud-card:last-child { grid-column: 1 / -1; width: calc(50% - 8px); justify-self: center; }
+  .coaches-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ach-numbers { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; }
+  .comp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery-bento { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 170px; }
+  .today-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
+  .contacts-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-info { grid-column: 1 / -1; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .footer-social { grid-column: 1 / -1; }
+}
+
+@media (min-width: 561px) and (max-width: 1080px) {
+  .hero-title .line { white-space: nowrap; }
+}
+
+@media (min-width: 1081px) {
+  .hero-title .line { white-space: nowrap; }
+}
+
+@media (max-width: 900px) {
+  .hero-title { font-size: clamp(52px, 9.4vw, 82px); }
+  .why { grid-template-columns: minmax(0, 1fr); }
+  .why-photo { aspect-ratio: 4/5; max-height: none; max-width: 520px; }
+  .why-content { padding-top: 64px; padding-bottom: 72px; }
+  .parents-grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 28px; }
+  .today-grid { grid-template-columns: minmax(0, 1fr); }
+  .today-map { aspect-ratio: 16 / 10; }
+}
+
+@media (min-width: 1081px) {
+  .mobile-menu, .mobile-menu.open { visibility: hidden; transform: translateY(-100%); pointer-events: none; }
+}
+
+@media (max-width: 768px) {
+  :root { --gutter: clamp(18px, 5vw, 28px); }
+  body { font-size: 16px; }
+  .site-header { padding: 14px 0; }
+  .site-header[data-state="scrolled"] { padding: 9px 0; }
+  .brand-logo { width: 48px; height: 48px; max-width: 180px; }
+  .header-inner { gap: 14px; }
+  .mobile-menu-inner { padding-bottom: max(32px, env(safe-area-inset-bottom)); }
+  .hero { padding-top: 112px; padding-bottom: 60px; }
+  .hero-grid { gap: 36px; }
+  .hero-title { max-width: 100%; font-size: clamp(48px, 13vw, 76px); }
+  .hero-sub { margin-top: 22px; }
+  .hero-desc { max-width: 52ch; }
+  .hero-right { width: 100%; }
+  .today-map { aspect-ratio: 16 / 9; }
+  .hero-photo { height: auto; aspect-ratio: 4 / 3; }
+  .hero-scroll { display: none; }
+  .hero-cta { width: 100%; }
+  .hero-cta .btn { max-width: 100%; }
+  .parents-grid { grid-template-columns: minmax(0, 1fr); }
+  .parents-photo { max-width: 520px; }
+  .audience-grid { grid-template-columns: minmax(0, 1fr); }
+  .aud-card, .aud-card:last-child { grid-column: auto; width: 100%; max-width: 620px; justify-self: stretch; aspect-ratio: 1.15 / 1.2; }
+  .coaches-grid { grid-template-columns: minmax(0, 1fr); }
+  .coach-card { width: 100%; }
+  .coach-photo { aspect-ratio: 1.35 / 1; }
+  .gallery-bento { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; }
+  .g-wide { grid-column: span 2; }
+  .g-tall { grid-row: span 1; }
+  .ach-media { grid-template-columns: minmax(0, 1fr); }
+  .ach-seal { display: none; }
+  .footer-inner { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .footer-social { grid-column: auto; }
+  .modal { align-items: flex-start; padding: 16px; overflow-y: auto; }
+  .modal-panel { width: 100%; max-height: calc(100vh - 32px); grid-template-columns: minmax(0, 1fr); overflow-y: auto; }
+  .modal-media { min-height: 300px; height: min(48vh, 420px); }
+  .modal-media img { min-height: 0; height: 100%; object-position: center 18%; }
+  .modal-body { max-height: none; overflow: visible; padding: 28px 24px 32px; }
+  .modal-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .section-title { font-size: clamp(34px, 10vw, 52px); }
+  .section-lead { font-size: 16px; }
+  .hero { padding-top: 104px; }
+  .hero-title { font-size: clamp(44px, 13.5vw, 64px); }
+  .hero-cta { flex-direction: column; align-items: stretch; }
+  .hero-cta .btn, .cta-actions .btn { width: 100%; }
+  .hero-facts { gap: 18px; }
+  .hero-facts strong { font-size: 24px; }
+  .timeline, .ach-numbers, .comp-grid, .contacts-grid { grid-template-columns: minmax(0, 1fr); }
+  .contact-info { grid-column: auto; }
+  .why-words { grid-template-columns: minmax(0, 1fr); }
+  .gallery-bento { grid-auto-rows: 130px; gap: 10px; }
+  .modal { padding: 0; }
+  .modal-panel { max-height: 100vh; min-height: 100vh; border-radius: 0; }
+  .modal-media { height: 42vh; min-height: 260px; }
+  .modal-body { padding: 26px 18px 32px; }
+  .modal-name { font-size: clamp(30px, 9vw, 42px); }
+  .modal-stats { grid-template-columns: minmax(0, 1fr); }
+  .lightbox { padding: 60px 16px 24px; }
+  .lightbox-nav { width: 46px; height: 46px; font-size: 28px; }
+  .lightbox-stage img { max-height: 70vh; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; align-items: center; }
+}
+
+@media (max-width: 380px) {
+  .hero-title { font-size: 42px; }
+  .gallery-bento { grid-auto-rows: 110px; }
+  .modal-gallery { gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo img, .aud-photo img, .coach-photo img, .g-item img { transition: none; }
+}
+
+@supports (padding: env(safe-area-inset-left)) {
+  .site-header, .mobile-menu-inner, .modal, .lightbox { padding-left: max(var(--gutter), env(safe-area-inset-left)); padding-right: max(var(--gutter), env(safe-area-inset-right)); }
+}
