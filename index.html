@@ -17,9 +17,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/journey.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
@@ -28,16 +28,20 @@
   <!-- ===================== HEADER ===================== -->
   <header class="site-header" id="siteHeader" data-state="top">
     <div class="header-inner">
-      <a class="brand" href="#hero" aria-label="Федерация каратэ WKC Курской области — на главную">
-        <img class="brand-logo" src="media/gallery/iconka.ico" alt="Федерация каратэ WKC Курской области" decoding="async" />
-      </a>
+      <div class="brand">
+        <a class="brand-home" href="#hero" aria-label="Федерация каратэ WKC Курской области — на главную">
+          <img class="brand-logo" src="media/gallery/iconka.ico" alt="Федерация каратэ WKC Курской области" decoding="sync" />
+          <span class="brand-copy"><strong>ФЕДЕРАЦИЯ КАРАТЭ</strong><small>WKC КУРСКОЙ ОБЛАСТИ</small></span>
+        </a>
+       </div>
 
       <nav class="primary-nav" aria-label="Основная навигация">
         <a href="#path">О федерации</a>
+        <a href="#audience">Кому подходит</a>
+        <a href="#why">Почему каратэ</a>
         <a href="#coaches">Тренеры</a>
-        <a href="#audience">Тренировки</a>
+        <a href="#trainings">Тренировки</a>
         <a href="#achievements">Достижения</a>
-        <a href="#competitions">Соревнования</a>
         <a href="#contacts">Контакты</a>
       </nav>
 
@@ -59,14 +63,17 @@
     </div>
       <div class="mobile-menu-inner">
         <button class="mm-close" id="mmClose" aria-label="Закрыть меню">×</button>
-      <nav aria-label="Мобильная навигация">
-        <a href="#path" class="mm-link"><span class="mm-num">01</span>О федерации</a>
-        <a href="#coaches" class="mm-link"><span class="mm-num">02</span>Тренеры</a>
-        <a href="#audience" class="mm-link"><span class="mm-num">03</span>Тренировки</a>
-        <a href="#achievements" class="mm-link"><span class="mm-num">04</span>Достижения</a>
-        <a href="#competitions" class="mm-link"><span class="mm-num">05</span>Соревнования</a>
-        <a href="#contacts" class="mm-link"><span class="mm-num">06</span>Контакты</a>
-      </nav>
+       <nav aria-label="Мобильная навигация">
+         <a href="#path" class="mm-link"><span class="mm-num">01</span>О федерации</a>
+         <a href="#audience" class="mm-link"><span class="mm-num">02</span>Кому подходит</a>
+         <a href="#why" class="mm-link"><span class="mm-num">03</span>Почему каратэ</a>
+         <a href="#coaches" class="mm-link"><span class="mm-num">04</span>Тренеры</a>
+         <a href="#trainings" class="mm-link"><span class="mm-num">05</span>Тренировки</a>
+         <a href="#achievements" class="mm-link"><span class="mm-num">06</span>Достижения</a>
+         <a href="#today" class="mm-link"><span class="mm-num">07</span>Федерация сегодня</a>
+         <a href="#gallery" class="mm-link"><span class="mm-num">08</span>Галерея</a>
+         <a href="#contacts" class="mm-link"><span class="mm-num">09</span>Контакты</a>
+       </nav>
       <a class="btn btn-accent btn-block" href="#cta">Записаться на тренировку</a>
       <div class="mm-foot">
         <a href="https://vk.com/public186004438" target="_blank" rel="noopener">VK</a>
@@ -76,8 +83,7 @@
   </div>
 
   <main>
-    <!-- ===================== HERO ===================== -->
-    <section class="hero" id="hero">
+<section class="hero" id="hero">
       <div class="hero-grid">
         <div class="hero-left">
           <p class="hero-eyebrow"><span class="red-bar" aria-hidden="true"></span>01 / KARATE <span class="hero-kanji" lang="ja">空手</span></p>
@@ -115,149 +121,215 @@
       <div class="hero-scroll" aria-hidden="true"><span>Листайте</span><i></i></div>
     </section>
 
-    <!-- ===================== PATH / TIMELINE ===================== -->
-    <section class="path" id="path">
-      <div class="section-head" data-reveal>
-        <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>ПУТЬ ФЕДЕРАЦИИ</p>
-        <h2 class="section-title">Четыре этапа<br />одного пути</h2>
-        <p class="section-lead">От первых шагов до чемпионских наград — история развития каратэ WKC в Курской области.</p>
-      </div>
+    <!-- ===================== AUDIENCE ===================== -->
+    <section class="audience" id="audience">
+      <div class="audience-inner">
+        <header class="audience-head" data-reveal>
+          <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>КОМУ ПОДХОДИТ</p>
+          <h2 class="section-title">Кому подходит каратэ?</h2>
+          <p class="section-lead">Неважно, каким ты приходишь сегодня.<br />Важно, кем станешь через год.</p>
+        </header>
 
-      <ol class="timeline" data-reveal-stagger>
-        <li class="tl-item" data-num="01">
-          <span class="tl-kanji" lang="ja" aria-hidden="true">始</span>
-          <div class="tl-body">
-            <span class="tl-num">01</span>
-            <h3>Истоки</h3>
-            <p>Формирование федерации и первые группы единомышленников, объединённых уважением к традициям каратэ.</p>
-          </div>
-        </li>
-        <li class="tl-item" data-num="02">
-          <span class="tl-kanji" lang="ja" aria-hidden="true">進</span>
-          <div class="tl-body">
-            <span class="tl-num">02</span>
-            <h3>Развитие</h3>
-            <p>Рост числа спортсменов, открытие залов в Курске и передача опыта новому поколению учеников.</p>
-          </div>
-        </li>
-        <li class="tl-item" data-num="03">
-          <span class="tl-kanji" lang="ja" aria-hidden="true">勝</span>
-          <div class="tl-body">
-            <span class="tl-num">03</span>
-            <h3>Спортивные достижения</h3>
-            <p>Участие в чемпионатах WKC, победы на городских, областных и всероссийских турнирах.</p>
-          </div>
-        </li>
-        <li class="tl-item" data-num="04">
-          <span class="tl-kanji" lang="ja" aria-hidden="true">新</span>
-          <div class="tl-body">
-            <span class="tl-num">04</span>
-            <h3>Новое поколение</h3>
-            <p>Дети и подростки, которые приходят в зал сегодня, — будущее федерации и каратэ в регионе.</p>
-          </div>
-        </li>
-      </ol>
+        <div class="audience-grid" data-reveal-stagger>
+          <article class="aud-card aud-kids">
+            <div class="aud-photo"><img src="media/achievements/alek_s_uchenikami.webp" alt="Дети на тренировке по каратэ" loading="lazy" decoding="async" /></div>
+            <span class="aud-num">01</span>
+            <div class="aud-text">
+              <h3>ДЕТЯМ</h3>
+              <span class="aud-age">5–7 лет</span>
+              <p>Первые шаги в спорте, дисциплина, координация и уверенность.</p>
+            </div>
+          </article>
+
+          <article class="aud-card aud-school">
+            <div class="aud-photo"><img src="media/achievements/commanda.webp" alt="Школьники на тренировке федерации" loading="lazy" decoding="async" /></div>
+            <span class="aud-num">02</span>
+            <div class="aud-text">
+              <h3>ШКОЛЬНИКАМ</h3>
+              <span class="aud-age">8–13 лет</span>
+              <p>Физическая подготовка, характер, новые друзья и первые соревнования.</p>
+            </div>
+          </article>
+
+          <article class="aud-card aud-teens">
+            <div class="aud-photo"><img src="media/gallery/vmeste.webp" alt="Подростки-спортсмены федерации" loading="lazy" decoding="async" /></div>
+            <span class="aud-num">03</span>
+            <div class="aud-text">
+              <h3>ПОДРОСТКАМ</h3>
+              <span class="aud-age">14–17 лет</span>
+              <p>Сила, самоконтроль, спортивные цели и развитие характера.</p>
+            </div>
+          </article>
+
+          <article class="aud-card aud-adults">
+            <div class="aud-photo"><img src="media/decorative/PEXNQVzJujCZxvyy72DrzmYZqDEWD3tbYF_Nj1YVGRoDA6ZVbWMcL9wWPFue3cC-LiUNFv7NhUD2RmuqYrBRrXmD.webp" alt="Взрослый спортсмен на тренировке" loading="lazy" decoding="async" /></div>
+            <span class="aud-num">04</span>
+            <div class="aud-text">
+              <h3>ВЗРОСЛЫМ</h3>
+              <span class="aud-age">18+</span>
+              <p>Форма, техника, дисциплина и возможность начать с нуля.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="audience-foot" data-reveal>
+          <p class="audience-note">Не нужно иметь спортивный опыт. Не нужно быть сильным. Первый шаг можно сделать в любом возрасте.</p>
+          <a class="btn btn-accent" href="#cta">Попробовать первую тренировку →</a>
+        </div>
+      </div>
     </section>
 
-    <!-- ===================== WHY KARATE ===================== -->
+    <!-- ===================== WHY ===================== -->
     <section class="why" id="why">
-      <div class="why-photo" aria-hidden="true">
-        <img src="media/gallery/dim_s_ushenikami.webp" alt="" loading="lazy" decoding="async" />
-        <span class="why-photo-kanji" lang="ja">力</span>
+      <div class="why-media">
+        <div class="why-photo">
+          <img src="media/gallery/dim_s_ushenikami.webp" alt="Тренировка по каратэ — дети на занятии" loading="lazy" decoding="async" />
+          <span class="why-photo-kanji" lang="ja" aria-hidden="true">力</span>
+        </div>
       </div>
       <div class="why-content">
         <p class="section-eyebrow dark"><span class="red-bar" aria-hidden="true"></span>ПОЧЕМУ КАРАТЭ</p>
-        <h2 class="section-title dark">Не просто удары.<br />Характер.</h2>
-        <p class="why-lead">Каратэ развивает человека целиком — от физической формы до внутренней опоры.</p>
+        <h2 class="section-title dark">Не только техника.<br />Не только спорт.</h2>
+        <p class="why-lead">Каратэ помогает ребёнку становиться увереннее, дисциплинированнее и самостоятельнее.</p>
         <ul class="why-words" data-reveal-stagger>
-          <li><strong>ДИСЦИПЛИНА</strong><span>Режим, правила и умение доводить начатое до конца.</span></li>
-          <li><strong>СИЛА</strong><span>Контролируемая энергия тела и духа.</span></li>
-          <li><strong>ХАРАКТЕР</strong><span>Спокойствие под давлением и уверенность в себе.</span></li>
-          <li><strong>УВЕРЕННОСТЬ</strong><span>Чувство собственной опоры без агрессии.</span></li>
-          <li><strong>КОМАНДА</strong><span>Взаимовыручка и общие цели на татами.</span></li>
-          <li><strong>УВАЖЕНИЕ</strong><span>К сопернику, тренеру и самому себе.</span></li>
+          <li><span class="ww-num">01</span><strong>ДИСЦИПЛИНА</strong><span>Учимся доводить начатое до конца.</span></li>
+          <li><span class="ww-num">02</span><strong>УВЕРЕННОСТЬ</strong><span>Ребёнок учится справляться со сложностями.</span></li>
+          <li><span class="ww-num">03</span><strong>ФИЗИЧЕСКАЯ ФОРМА</strong><span>Сила, координация, гибкость и выносливость.</span></li>
+          <li><span class="ww-num">04</span><strong>ХАРАКТЕР</strong><span>Умение контролировать эмоции и уважать других.</span></li>
         </ul>
       </div>
     </section>
 
-    <!-- ===================== PARENTS ===================== -->
-    <section class="parents" id="parents">
-      <div class="parents-head" data-reveal>
-        <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>ДЛЯ РОДИТЕЛЕЙ</p>
-        <h2 class="section-title">Что получит<br />ваш ребёнок</h2>
-        <p class="section-lead">Каратэ — это система, которая помогает расти не только телом, но и личностью. Нажимайте на пункты, чтобы раскрыть подробности.</p>
-      </div>
+<section class="journey" id="journey" aria-label="Путь спортсмена">
+      <div class="journey-inner">
+        <header class="journey-head" data-reveal>
+          <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>ПУТЬ СПОРТСМЕНА</p>
+          <h2 class="journey-title">Что изменится,<br />если начать сегодня?</h2>
+          <span class="journey-kanji" lang="ja" aria-hidden="true">道</span>
+        </header>
 
-      <div class="parents-grid" data-reveal-stagger>
-        <div class="parents-photo">
-          <img src="media/achievements/alek_s_uchenikami.webp" alt="Тренер федерации с группой юных спортсменов на тренировке" loading="lazy" decoding="async" />
-          <span class="parents-stamp" lang="ja" aria-hidden="true">教育</span>
+        <div class="journey-layout">
+          <ol class="journey-steps" aria-label="Этапы пути спортсмена">
+            <span class="j-line" aria-hidden="true"></span>
+            <span class="j-progress" aria-hidden="true"></span>
+            <li class="j-step" data-stage="0" tabindex="0" role="button" aria-label="Этап 01: Первая тренировка">
+              <span class="j-rail" aria-hidden="true"><span class="j-dot"></span></span>
+              <div class="j-info">
+                <span class="j-num">01</span>
+                <h3 class="j-name">ПЕРВАЯ ТРЕНИРОВКА</h3>
+                <p class="j-quote">«Я просто попробую.»</p>
+                <p class="j-desc">Первый шаг всегда самый сложный. Новый зал, новые люди, первое знакомство с татами. Здесь не требуют быть сильным сразу — здесь учат становиться сильнее.</p>
+                <figure class="j-photo"><img src="media/decorative/zal.webp" alt="Первая тренировка каратэ в зале федерации" loading="lazy" decoding="async" /></figure>
+              </div>
+            </li>
+            <li class="j-step" data-stage="1" tabindex="0" role="button" aria-label="Этап 02: Первый месяц">
+              <span class="j-rail" aria-hidden="true"><span class="j-dot"></span></span>
+              <div class="j-info">
+                <span class="j-num">02</span>
+                <h3 class="j-name">ПЕРВЫЙ МЕСЯЦ</h3>
+                <p class="j-quote">«Я уже умею.»</p>
+                <p class="j-desc">Появляется первый результат. Ребёнок начинает лучше контролировать своё тело, слушать тренера и замечать собственный прогресс.</p>
+                <figure class="j-photo"><img src="media/gallery/dim_s_ushenikami.webp" alt="Тренер с учениками на тренировке" loading="lazy" decoding="async" /></figure>
+              </div>
+            </li>
+            <li class="j-step" data-stage="2" tabindex="0" role="button" aria-label="Этап 03: Первые соревнования">
+              <span class="j-rail" aria-hidden="true"><span class="j-dot"></span></span>
+              <div class="j-info">
+                <span class="j-num">03</span>
+                <h3 class="j-name">ПЕРВЫЕ СОРЕВНОВАНИЯ</h3>
+                <p class="j-quote">«Я смогу.»</p>
+                <p class="j-desc">Первый выход на татами — момент, который запоминается надолго. Волнение превращается в концентрацию, а страх ошибиться — в желание попробовать ещё раз.</p>
+                <figure class="j-photo"><img src="media/gallery/nastovlenie.webp" alt="Показательное выступление на соревнованиях" loading="lazy" decoding="async" /></figure>
+              </div>
+            </li>
+            <li class="j-step" data-stage="3" tabindex="0" role="button" aria-label="Этап 04: Через год">
+              <span class="j-rail" aria-hidden="true"><span class="j-dot"></span></span>
+              <div class="j-info">
+                <span class="j-num">04</span>
+                <h3 class="j-name">ЧЕРЕЗ ГОД</h3>
+                <p class="j-quote">«Я сам не верю, как изменился.»</p>
+                <p class="j-desc">Больше уверенности. Больше дисциплины. Больше характера. И главное — ребёнок уже знает: если работать над собой, невозможное становится достижимым.</p>
+                <figure class="j-photo"><img src="media/gallery/IMG_6311.webp" alt="Спортсмен федерации в технике ката" loading="lazy" decoding="async" /></figure>
+              </div>
+            </li>
+          </ol>
+
+          <aside class="journey-media">
+            <div class="jp-stage">
+              <img class="jp-photo is-active" data-i="0" src="media/decorative/zal.webp" alt="Первая тренировка каратэ в зале федерации" decoding="async" />
+              <img class="jp-photo" data-i="1" src="media/gallery/dim_s_ushenikami.webp" alt="Тренер с учениками на тренировке" decoding="async" />
+              <img class="jp-photo" data-i="2" src="media/gallery/nastovlenie.webp" alt="Показательное выступление на соревнованиях" decoding="async" />
+              <img class="jp-photo" data-i="3" src="media/gallery/IMG_6311.webp" alt="Спортсмен федерации в технике ката" decoding="async" />
+              <span class="jp-kanji" lang="ja" aria-hidden="true">道</span>
+            </div>
+          </aside>
         </div>
-        <ul class="parents-list" role="list">
-          <li class="pl-item" tabindex="0" aria-expanded="false">
-            <span class="pl-mark">+</span><h3>Дисциплина</h3>
-            <p class="pl-text">Ребёнок привыкает к распорядку, учится слушать и выполнять задачи последовательно.</p>
-          </li>
-          <li class="pl-item" tabindex="0" aria-expanded="false">
-            <span class="pl-mark">+</span><h3>Уверенность</h3>
-            <p class="pl-text">Снимается страх перед выступлениями и новыми ситуациями, появляется внутренняя опора.</p>
-          </li>
-          <li class="pl-item" tabindex="0" aria-expanded="false">
-            <span class="pl-mark">+</span><h3>Координация</h3>
-            <p class="pl-text">Точные движения и баланс развивают ловкость и чувство собственного тела.</p>
-          </li>
-          <li class="pl-item" tabindex="0" aria-expanded="false">
-            <span class="pl-mark">+</span><h3>Сила и выносливость</h3>
-            <p class="pl-text">Регулярные тренировки укрепляют здоровье и дают заряд энергии на весь день.</p>
-          </li>
-          <li class="pl-item" tabindex="0" aria-expanded="false">
-            <span class="pl-mark">+</span><h3>Концентрация</h3>
-            <p class="pl-text">Внимание на технике переносится на учёбу и любые другие дела.</p>
-          </li>
-          <li class="pl-item" tabindex="0" aria-expanded="false">
-            <span class="pl-mark">+</span><h3>Уважение и команда</h3>
-            <p class="pl-text">Дети учатся дружить, поддерживать и ценить окружающих.</p>
-          </li>
-        </ul>
       </div>
     </section>
 
-    <!-- ===================== AUDIENCE ===================== -->
-    <section class="audience" id="audience">
-      <div class="section-head" data-reveal>
-        <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>КОМУ ПОДХОДИТ</p>
-        <h2 class="section-title">Каратэ для каждого возраста</h2>
-      </div>
-      <div class="audience-grid" data-reveal-stagger>
-        <article class="aud-card aud-kids">
-          <div class="aud-photo"><img src="media/decorative/zal.webp" alt="Дети на тренировке по каратэ в зале" loading="lazy" decoding="async" /></div>
-          <div class="aud-text">
-            <span class="aud-kanji" lang="ja" aria-hidden="true">童</span>
-            <h3>ДЕТЯМ</h3>
-            <p>От первых шагов до соревнований — дисциплина, игра и рост в безопасной среде.</p>
-          </div>
-        </article>
-        <article class="aud-card aud-teens">
-          <div class="aud-photo"><img src="media/achievements/commanda.webp" alt="Группа подростков-спортсменов федерации" loading="lazy" decoding="async" /></div>
-          <div class="aud-text">
-            <span class="aud-kanji" lang="ja" aria-hidden="true">青</span>
-            <h3>ПОДРОСТКАМ</h3>
-            <p>Спорт, дисциплина и развитие характера в важный период взросления.</p>
-          </div>
-        </article>
-        <article class="aud-card aud-adults">
-          <div class="aud-photo"><img src="media/decorative/PEXNQVzJujCZxvyy72DrzmYZqDEWD3tbYF_Nj1YVGRoDA6ZVbWMcL9wWPFue3cC-LiUNFv7NhUD2RmuqYrBRrXmD.webp" alt="Взрослый спортсмен на тренировке" loading="lazy" decoding="async" /></div>
-          <div class="aud-text">
-            <span class="aud-kanji" lang="ja" aria-hidden="true">成人</span>
-            <h3>ВЗРОСЛЫМ</h3>
-            <p>Физическая форма, техника и спокойная уверенность в любом возрасте.</p>
-          </div>
-        </article>
+    <!-- ===================== TRAININGS ===================== -->
+    <section class="trainings" id="trainings">
+      <div class="trainings-inner">
+        <header class="section-head" data-reveal>
+          <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>ТРЕНИРОВКИ</p>
+          <h2 class="section-title">Как проходят тренировки</h2>
+          <p class="section-lead">Четыре направления, которые развиваются вместе: от базовой техники до выступлений на татами.</p>
+        </header>
+
+        <div class="trainings-grid" data-reveal-stagger>
+          <article class="tr-card">
+            <span class="tr-num">01</span>
+            <h3 class="tr-title">Ката</h3>
+            <p class="tr-desc">Формальные комплексы — основа техники, ритма и концентрации.</p>
+            <dl class="tr-meta">
+              <div><dt>Возраст</dt><dd>с 5 лет</dd></div>
+              <div><dt>Формат</dt><dd>групповые</dd></div>
+              <div><dt>Длительность</dt><dd>60–90 мин</dd></div>
+              <div><dt>Уровень</dt><dd>начальный → продвинутый</dd></div>
+            </dl>
+          </article>
+          <article class="tr-card">
+            <span class="tr-num">02</span>
+            <h3 class="tr-title">Кумитэ</h3>
+            <p class="tr-desc">Контролируемый спарринг: дистанция, тайминг и уважение к сопернику.</p>
+            <dl class="tr-meta">
+              <div><dt>Возраст</dt><dd>с 8 лет</dd></div>
+              <div><dt>Формат</dt><dd>парная работа</dd></div>
+              <div><dt>Длительность</dt><dd>20–40 мин</dd></div>
+              <div><dt>Уровень</dt><dd>базовый → соревновательный</dd></div>
+            </dl>
+          </article>
+          <article class="tr-card">
+            <span class="tr-num">03</span>
+            <h3 class="tr-title">Физическая подготовка</h3>
+            <p class="tr-desc">ОФП, координация, гибкость и выносливость — фундамент прогресса.</p>
+            <dl class="tr-meta">
+              <div><dt>Возраст</dt><dd>с 5 лет</dd></div>
+              <div><dt>Формат</dt><dd>круговые</dd></div>
+              <div><dt>Длительность</dt><dd>15–30 мин</dd></div>
+              <div><dt>Уровень</dt><dd>любой</dd></div>
+            </dl>
+          </article>
+          <article class="tr-card">
+            <span class="tr-num">04</span>
+            <h3 class="tr-title">Подготовка к соревнованиям</h3>
+            <p class="tr-desc">Тактика, психология выступления и уверенный выход на татами.</p>
+            <dl class="tr-meta">
+              <div><dt>Возраст</dt><dd>с 8 лет</dd></div>
+              <div><dt>Формат</dt><dd>спец. группы</dd></div>
+              <div><dt>Длительность</dt><dd>по плану</dd></div>
+              <div><dt>Уровень</dt><dd>опытные</dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="trainings-foot" data-reveal>
+          <a class="btn btn-accent" href="#cta">Записаться на тренировку →</a>
+        </div>
       </div>
     </section>
 
-    <!-- ===================== COACHES ===================== -->
-    <section class="coaches" id="coaches">
+<section class="coaches" id="coaches">
       <div class="section-head" data-reveal>
         <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>ТРЕНЕРЫ</p>
         <h2 class="section-title">Люди, которые<br />ведут вперёд</h2>
@@ -301,8 +373,7 @@
       </div>
     </section>
 
-    <!-- ===================== ACHIEVEMENTS ===================== -->
-    <section class="ach" id="achievements">
+<section class="ach" id="achievements">
       <div class="ach-head">
         <p class="section-eyebrow light"><span class="gold-bar" aria-hidden="true"></span>НАШИ ДОСТИЖЕНИЯ</p>
         <h2 class="section-title light">Результат<br />говорит сам</h2>
@@ -338,157 +409,153 @@
       </div>
     </section>
 
-    <!-- ===================== COMPETITIONS ===================== -->
-    <section class="comp" id="competitions">
+<section class="path" id="path">
       <div class="section-head" data-reveal>
-        <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>СОРЕВНОВАТЕЛЬНЫЙ ПУТЬ</p>
-        <h2 class="section-title">Календарь<br />выступлений</h2>
-        <p class="section-lead">Ближайшие старты и недавние результаты команды федерации.</p>
+        <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>ПУТЬ ФЕДЕРАЦИИ</p>
+        <h2 class="section-title">От первых тренировок<br />до команды, которая продолжает развиваться</h2>
+        <p class="section-lead">История каратэ WKC в Курской области — как единомышленники со временем становятся командой.</p>
       </div>
 
-      <div class="comp-grid" data-reveal-stagger>
-        <article class="comp-card comp-upcoming">
-          <div class="comp-date">
-            <span class="comp-day">24</span>
-            <span class="comp-month">АВГУСТ</span>
-            <span class="comp-year">2026</span>
+      <ol class="fed-timeline" data-reveal-stagger>
+        <li class="fed-item" data-num="01">
+          <div class="fed-rail"><span class="fed-num">01</span></div>
+          <div class="fed-body">
+            <span class="fed-label">НАЧАЛО</span>
+            <h3 class="fed-title">Первые шаги</h3>
+            <p class="fed-desc">Федерация объединяет спортсменов, тренеров и родителей вокруг каратэ и спортивного развития детей.</p>
           </div>
-          <div class="comp-body">
-            <span class="comp-status status-soon">Предстоит</span>
-            <h3>Открытый чемпионат</h3>
-            <p class="comp-place">Курск · Дворец спорта</p>
-            <p class="comp-note">Региональный турнир по ката и кумитэ среди детей и взрослых.</p>
+          <figure class="fed-media">
+            <img src="media/achievements/alek_s_uchenikami.webp" alt="Тренер федерации с группой юных спортсменов на тренировке" loading="lazy" decoding="async" />
+          </figure>
+        </li>
+        <li class="fed-item" data-num="02">
+          <div class="fed-rail"><span class="fed-num">02</span></div>
+          <div class="fed-body">
+            <span class="fed-label">КОМАНДА</span>
+            <h3 class="fed-title">Люди рядом</h3>
+            <p class="fed-desc">Тренеры помогают спортсменам не только осваивать технику, но и развивать дисциплину, характер и уверенность.</p>
           </div>
-        </article>
+          <figure class="fed-media">
+            <img src="media/gallery/dim_s_ushenikami.webp" alt="Дмитрий Юрьевич с учениками на тренировке" loading="lazy" decoding="async" />
+          </figure>
+        </li>
+        <li class="fed-item" data-num="03">
+          <div class="fed-rail"><span class="fed-num">03</span></div>
+          <div class="fed-body">
+            <span class="fed-label">СОРЕВНОВАНИЯ</span>
+            <h3 class="fed-title">Испытания на татами</h3>
+            <p class="fed-desc">Тренировки становятся подготовкой к реальным испытаниям: соревнованиям, выступлениям и новым спортивным целям.</p>
+          </div>
+          <figure class="fed-media">
+            <img src="media/gallery/nastovlenie.webp" alt="Показательное выступление на соревнованиях" loading="lazy" decoding="async" />
+          </figure>
+        </li>
+        <li class="fed-item" data-num="04">
+          <div class="fed-rail"><span class="fed-num">04</span></div>
+          <div class="fed-body">
+            <span class="fed-label">РАЗВИТИЕ</span>
+            <h3 class="fed-title">Дальше — больше</h3>
+            <p class="fed-desc">Федерация продолжает развивать спортивное направление и создавать среду, в которой ребёнок может расти вместе с командой.</p>
+          </div>
+          <figure class="fed-media">
+            <img src="media/gallery/vmeste.webp" alt="Команда федерации на соревнованиях" loading="lazy" decoding="async" />
+          </figure>
+        </li>
+      </ol>
+    </section>
 
-        <article class="comp-card comp-upcoming">
-          <div class="comp-date">
-            <span class="comp-day">12</span>
-            <span class="comp-month">ОКТЯБРЬ</span>
-            <span class="comp-year">2026</span>
-          </div>
-          <div class="comp-body">
-            <span class="comp-status status-soon">Предстоит</span>
-            <h3>Кубок федерации WKC</h3>
-            <p class="comp-place">Курск · ТЦ «Пушкинский»</p>
-            <p class="comp-note">Отборочные бои и показательные выступления воспитанников.</p>
-          </div>
-        </article>
+<section class="today" id="today">
+      <div class="today-inner">
+        <header class="today-head" data-reveal>
+          <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>ФЕДЕРАЦИЯ СЕГОДНЯ</p>
+          <h2 class="today-title">Курск — часть<br />большого спортивного пути.</h2>
+          <p class="today-lead">Мы тренируем спортсменов здесь, но развиваемся вместе с единомышленниками из других регионов России.</p>
+        </header>
 
-        <article class="comp-card comp-done">
-          <div class="comp-date">
-            <span class="comp-day">15</span>
-            <span class="comp-month">МАЙ</span>
-            <span class="comp-year">2026</span>
+        <div class="today-grid" data-reveal>
+          <div class="today-origin">
+            <span class="to-num">01</span>
+            <span class="to-place">КУРСКАЯ ОБЛАСТЬ</span>
+            <p class="to-origin-text">Точка, где начинается путь спортсмена.</p>
+            <span class="to-kanji" lang="ja" aria-hidden="true">空手</span>
           </div>
-          <div class="comp-body">
-            <span class="comp-status status-done">Завершено</span>
-            <h3>Чемпионат области</h3>
-            <p class="comp-place">Курск</p>
-            <p class="comp-note">Команда федерации вернулась с комплектом медалей по нескольким дисциплинам.</p>
-          </div>
-        </article>
 
-        <article class="comp-card comp-done">
-          <div class="comp-date">
-            <span class="comp-day">09</span>
-            <span class="comp-month">ФЕВРАЛЬ</span>
-            <span class="comp-year">2026</span>
-          </div>
-          <div class="comp-body">
-            <span class="comp-status status-done">Завершено</span>
-            <h3>Зимний турнир</h3>
-            <p class="comp-place">Курская область</p>
-            <p class="comp-note">Личные и командные старты среди начинающих и опытных спортсменов.</p>
-          </div>
-        </article>
+          <ol class="today-links">
+            <li class="to-link">
+              <span class="to-num">02</span>
+              <h3 class="to-link-title">СОРЕВНОВАНИЯ</h3>
+              <p class="to-link-text">Спортсмены получают опыт не только на домашних стартах.</p>
+            </li>
+            <li class="to-link">
+              <span class="to-num">03</span>
+              <h3 class="to-link-title">ДРУГИЕ РЕГИОНЫ</h3>
+              <p class="to-link-text">Выезды, встречи и спортивные связи расширяют возможности для роста.</p>
+            </li>
+            <li class="to-link">
+              <span class="to-num">04</span>
+              <h3 class="to-link-title">ОБМЕН ОПЫТОМ</h3>
+              <p class="to-link-text">Тренеры и спортсмены развиваются, когда работают не только внутри одного зала.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="today-route" data-reveal aria-hidden="true">
+          <span class="tr-stop">КУРСК</span>
+          <span class="tr-line"></span>
+          <span class="tr-stop">СТАРТЫ</span>
+          <span class="tr-line"></span>
+          <span class="tr-stop">ВЫЕЗДЫ</span>
+          <span class="tr-line"></span>
+          <span class="tr-stop">ОПЫТ</span>
+        </div>
+
+        <p class="today-outro" data-reveal>Больше связей.<br />Больше опыта.<br />Больше возможностей.</p>
+        <div class="today-mapru" aria-hidden="true">
+          <svg viewBox="0 0 600 220" preserveAspectRatio="xMidYMid meet" role="img">
+            <path class="ru-land" d="M40,140 C70,104 120,92 170,98 C212,103 222,68 272,72 C322,76 332,108 382,106 C442,104 472,78 522,94 C562,106 578,138 562,158 C548,174 500,168 470,176 C420,188 360,198 300,194 C240,190 180,202 130,192 C90,184 55,172 40,140 Z" />
+            <path class="ru-link" d="M150,142 L322,116 L500,130" />
+            <circle class="ru-dot" cx="150" cy="142" r="7" />
+            <circle class="ru-dot" cx="322" cy="116" r="7" />
+            <circle class="ru-dot" cx="500" cy="130" r="7" />
+          </svg>
+          <ul class="today-mapru-labels">
+            <li><span class="ru-pin">Курск</span></li>
+            <li><span class="ru-pin">Другие регионы</span></li>
+            <li><span class="ru-pin">Всероссийские турниры</span></li>
+          </ul>
+        </div>
+
+        <figure class="today-photo" data-reveal>
+          <button class="g-item today-photo-btn" type="button" data-full="media/gallery/vmeste.webp" data-cap="Команда федерации">
+            <img src="media/gallery/vmeste.webp" alt="Команда федерации каратэ" loading="lazy" decoding="async" />
+            <span class="today-photo-hint"><span class="today-photo-label">ОТКРЫТЬ ФОТО</span><span class="today-photo-arrow" aria-hidden="true">→</span></span>
+          </button>
+        </figure>
       </div>
     </section>
 
-    <!-- ===================== GALLERY ===================== -->
-    <section class="gallery" id="gallery">
+<section class="gallery" id="gallery">
       <div class="section-head" data-reveal>
         <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>ГАЛЕРЕЯ</p>
         <h2 class="section-title">Жизнь<br />федерации</h2>
         <p class="section-lead">Моменты тренировок, выступлений и команды. Нажмите, чтобы открыть на весь экран.</p>
       </div>
 
-      <div class="gallery-bento" data-reveal-stagger id="galleryGrid">
-        <button class="g-item g-tall" type="button" data-full="media/gallery/vmeste.webp" data-cap="Команда федерации на соревнованиях"><img src="media/gallery/vmeste.webp" alt="Команда федерации" loading="lazy" decoding="async" /></button>
-        <button class="g-item" type="button" data-full="media/gallery/dim_s_ushenikami.webp" data-cap="Дмитрий Юрьевич с учениками"><img src="media/gallery/dim_s_ushenikami.webp" alt="Тренер с учениками" loading="lazy" decoding="async" /></button>
-        <button class="g-item g-wide" type="button" data-full="media/achievements/blagodarnosti.webp" data-cap="Награды федерации"><img src="media/achievements/blagodarnosti.webp" alt="Награды" loading="lazy" decoding="async" /></button>
-        <button class="g-item" type="button" data-full="media/achievements/alek_s_uchenikami.webp" data-cap="Тренировка с юными спортсменами"><img src="media/achievements/alek_s_uchenikami.webp" alt="Тренировка с детьми" loading="lazy" decoding="async" /></button>
-        <button class="g-item g-tall" type="button" data-full="media/decorative/PEXNQVzJujCZxvyy72DrzmYZqDEWD3tbYF_Nj1YVGRoDA6ZVbWMcL9wWPFue3cC-LiUNFv7NhUD2RmuqYrBRrXmD.webp" data-cap="Техника на тренировке"><img src="media/decorative/PEXNQVzJujCZxvyy72DrzmYZqDEWD3tbYF_Nj1YVGRoDA6ZVbWMcL9wWPFue3cC-LiUNFv7NhUD2RmuqYrBRrXmD.webp" alt="Техника" loading="lazy" decoding="async" /></button>
-        <button class="g-item" type="button" data-full="media/achievements/commanda.webp" data-cap="Группа спортсменов"><img src="media/achievements/commanda.webp" alt="Группа спортсменов" loading="lazy" decoding="async" /></button>
-        <button class="g-item g-wide" type="button" data-full="media/gallery/nastovlenie.webp" data-cap="Показательное выступление"><img src="media/gallery/nastovlenie.webp" alt="Показательное выступление" loading="lazy" decoding="async" /></button>
-        <button class="g-item" type="button" data-full="media/decorative/GTOsMedved.webp" data-cap="Знаки отличия ГТО"><img src="media/decorative/GTOsMedved.webp" alt="ГТО" loading="lazy" decoding="async" /></button>
-        <button class="g-item" type="button" data-full="media/achievements/Chausov.webp" data-cap="Спортсмен федерации"><img src="media/achievements/Chausov.webp" alt="Спортсмен" loading="lazy" decoding="async" /></button>
-      </div>
-    </section>
-
-    <!-- ===================== TODAY ===================== -->
-    <section class="today" id="today">
-      <div class="section-head today-head" data-reveal>
-        <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>ФЕДЕРАЦИЯ СЕГОДНЯ</p>
-        <h2 class="section-title">Каратэ в Курске</h2>
-        <p class="section-lead">Два зала, регулярные тренировки, направления ката и кумитэ, соревновательная команда и программа развития спортсменов.</p>
-      </div>
-
-      <div class="today-grid" data-reveal>
-        <figure class="today-map">
-          <div id="kurskMap" class="today-map-canvas" aria-label="Интерактивная карта Курска с двумя залами федерации каратэ WKC"></div>
-          <span class="today-map-frame" aria-hidden="true"></span>
-          <span class="today-map-label">КУРСКАЯ ОБЛАСТЬ / WKC KARATE</span>
-          <span class="today-map-num" aria-hidden="true">01</span>
-          <span class="today-map-line" aria-hidden="true"></span>
-          <span class="today-map-kanji" lang="ja" aria-hidden="true">空手</span>
-          <span class="today-map-cap">Путь каратэ начинается здесь</span>
-        </figure>
-
-        <div class="today-panel">
-          <div class="today-panel-head">
-            <span class="today-panel-eyebrow">ПОКАЗАТЕЛИ ФЕДЕРАЦИИ</span>
-          </div>
-          <ul class="today-stats">
-            <li>
-              <span class="tp-fig">02</span>
-              <span class="tp-body"><span class="tp-label">зала в Курске</span><small>центр города и юг</small></span>
-            </li>
-            <li>
-              <span class="tp-fig">04</span>
-              <span class="tp-body"><span class="tp-label">возрастные группы</span><small>от первых шагов до взрослых</small></span>
-            </li>
-            <li>
-              <span class="tp-fig">02</span>
-              <span class="tp-body"><span class="tp-label">ката / кумитэ</span><small>два соревновательных направления</small></span>
-            </li>
-            <li>
-              <span class="tp-fig">∞</span>
-              <span class="tp-body"><span class="tp-label">путь развития</span><small>спортсмена от новичка до чемпиона</small></span>
-            </li>
-          </ul>
-
-          <div class="today-halls">
-            <p class="today-halls-label">ЗАЛЫ</p>
-            <a class="today-hall" href="https://yandex.ru/maps/?text=Курск%20ул.%20Ленина%2030" target="_blank" rel="noopener">
-              <span class="today-hall-num">01</span>
-              <span class="today-hall-text"><strong>ТЦ «Пушкинский»</strong><small>ул. Ленина, 30 · 4 этаж</small></span>
-              <span class="today-hall-go" aria-hidden="true">→</span>
-            </a>
-            <a class="today-hall" href="https://yandex.ru/maps/?text=Курск%20ул.%2050%20лет%20Октября%20141" target="_blank" rel="noopener">
-              <span class="today-hall-num">02</span>
-              <span class="today-hall-text"><strong>Юг города</strong><small>ул. 50 лет Октября, 141</small></span>
-              <span class="today-hall-go" aria-hidden="true">→</span>
-            </a>
-          </div>
+              <div class="gallery-bento" data-reveal-stagger id="galleryGrid">
+          <button class="g-item" type="button" data-full="media/gallery/vmeste.webp" data-cap="Команда федерации на соревнованиях" data-position="center"><img src="media/gallery/vmeste.webp" alt="Команда федерации каратэ" loading="lazy" decoding="async" /><span class="g-zoom" aria-hidden="true">+</span></button>
+          <button class="g-item" type="button" data-full="media/gallery/dim_s_ushenikami.webp" data-cap="Дмитрий Юрьевич с учениками" data-position="top"><img src="media/gallery/dim_s_ushenikami.webp" alt="Тренер с учениками на тренировке" loading="lazy" decoding="async" /><span class="g-zoom" aria-hidden="true">+</span></button>
+          <button class="g-item" type="button" data-full="media/gallery/nastovlenie.webp" data-cap="Показательное выступление" data-position="center"><img src="media/gallery/nastovlenie.webp" alt="Показательное выступление на соревнованиях" loading="lazy" decoding="async" /><span class="g-zoom" aria-hidden="true">+</span></button>
+          <button class="g-item g-wide" type="button" data-full="media/achievements/commanda.webp" data-cap="Группа спортсменов" data-position="center"><img src="media/achievements/commanda.webp" alt="Группа спортсменов федерации" loading="lazy" decoding="async" /><span class="g-zoom" aria-hidden="true">+</span></button>
+          <button class="g-item" type="button" data-full="media/achievements/alek_s_uchenikami.webp" data-cap="Тренировка с юными спортсменами" data-position="top"><img src="media/achievements/alek_s_uchenikami.webp" alt="Тренировка с детьми" loading="lazy" decoding="async" /><span class="g-zoom" aria-hidden="true">+</span></button>
+          <button class="g-item" type="button" data-full="media/achievements/blagodarnosti.webp" data-cap="Награды федерации" data-position="center"><img src="media/achievements/blagodarnosti.webp" alt="Награды федерации" loading="lazy" decoding="async" /><span class="g-zoom" aria-hidden="true">+</span></button>
+          <button class="g-item" type="button" data-full="media/gallery/IMG_6311.webp" data-cap="Спортсмен в технике ката" data-position="center"><img src="media/gallery/IMG_6311.webp" alt="Спортсмен федерации в технике ката" loading="lazy" decoding="async" /><span class="g-zoom" aria-hidden="true">+</span></button>
+          <button class="g-item" type="button" data-full="media/decorative/PEXNQVzJujCZxvyy72DrzmYZqDEWD3tbYF_Nj1YVGRoDA6ZVbWMcL9wWPFue3cC-LiUNFv7NhUD2RmuqYrBRrXmD.webp" data-cap="Техника на тренировке" data-position="center"><img src="media/decorative/PEXNQVzJujCZxvyy72DrzmYZqDEWD3tbYF_Nj1YVGRoDA6ZVbWMcL9wWPFue3cC-LiUNFv7NhUD2RmuqYrBRrXmD.webp" alt="Техника каратэ на тренировке" loading="lazy" decoding="async" /><span class="g-zoom" aria-hidden="true">+</span></button>
+          <button class="g-item g-wide" type="button" data-full="media/decorative/zal.webp" data-cap="Зал для тренировок" data-position="center"><img src="media/decorative/zal.webp" alt="Зал федерации каратэ" loading="lazy" decoding="async" /><span class="g-zoom" aria-hidden="true">+</span></button>
+          <button class="g-item g-wide" type="button" data-full="media/achievements/Chausov.webp" data-cap="Спортсмен федерации" data-position="center"><img src="media/achievements/Chausov.webp" alt="Спортсмен федерации" loading="lazy" decoding="async" /><span class="g-zoom" aria-hidden="true">+</span></button>
         </div>
-      </div>
-
-      <a class="today-more" href="#competitions">От первых шагов до соревнований <span class="today-more-arrow" aria-hidden="true">→</span></a>
     </section>
 
-    <!-- ===================== CONTACTS ===================== -->
-    <section class="contacts" id="contacts">
+<section class="contacts" id="contacts">
       <div class="contacts-head" data-reveal>
         <p class="section-eyebrow"><span class="red-bar" aria-hidden="true"></span>АДРЕСА ТРЕНИРОВОК</p>
         <h2 class="section-title">Где мы тренируемся</h2>
@@ -522,32 +589,34 @@
       </div>
     </section>
 
-    <!-- ===================== CTA ===================== -->
-    <section class="cta" id="cta">
+<section class="cta" id="cta">
       <span class="cta-kanji" lang="ja" aria-hidden="true">道</span>
       <div class="cta-inner" data-reveal>
-        <h2 class="cta-title">ГОТОВЫ СДЕЛАТЬ<br />ПЕРВЫЙ ШАГ?</h2>
-        <p class="cta-sub">Запишитесь на пробную тренировку и познакомьтесь с каратэ без обязательств.</p>
+        <h2 class="cta-title">ГОТОВЫ НАЧАТЬ?</h2>
+        <p class="cta-sub">Первая тренировка — первый шаг.</p>
         <div class="cta-actions">
           <a class="btn btn-accent btn-lg" href="https://vk.com/public186004438" target="_blank" rel="noopener">Записаться на тренировку</a>
-          <a class="btn btn-gold btn-lg" href="tel:+79290363256">Задать вопрос</a>
         </div>
       </div>
     </section>
   </main>
 
   <!-- ===================== FOOTER ===================== -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img class="footer-logo" src="media/gallery/iconka.ico" alt="Федерация каратэ WKC Курской области" loading="lazy" decoding="async" />
-      </div>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand-home footer-brand-home" href="#hero" aria-label="Федерация каратэ WKC Курской области — на главную">
+            <img class="brand-logo footer-logo" src="media/gallery/iconka.ico" alt="Федерация каратэ WKC Курской области" loading="lazy" decoding="async" />
+            <span class="brand-copy"><strong>ФЕДЕРАЦИЯ КАРАТЭ</strong><small>WKC КУРСКОЙ ОБЛАСТИ</small></span>
+          </a>
+        </div>
       <nav class="footer-nav" aria-label="Навигация по сайту">
         <a href="#path">О федерации</a>
+        <a href="#audience">Кому подходит</a>
+        <a href="#why">Почему каратэ</a>
         <a href="#coaches">Тренеры</a>
-        <a href="#audience">Тренировки</a>
+        <a href="#trainings">Тренировки</a>
         <a href="#achievements">Достижения</a>
-        <a href="#competitions">Соревнования</a>
         <a href="#contacts">Контакты</a>
       </nav>
       <div class="footer-social">
@@ -663,18 +732,13 @@
       <figcaption id="lightboxCap"></figcaption>
     </figure>
     <button class="lightbox-nav lightbox-next" data-lb-next aria-label="Следующее фото">›</button>
+    <span class="lightbox-count" id="lightboxCount" aria-live="polite">01 / 01</span>
   </div>
 
   <script src="js/animations.js" defer></script>
-  <script src="js/gallery.js" defer></script>
+  <script src="js/gallery.js?v=3" defer></script>
   <script src="js/modal.js" defer></script>
   <script src="js/main.js" defer></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-  <script src="js/map.js?v=2" defer></script>
-</body>
+  <script src="js/journey.js" defer></script>
+  </body>
 </html>
-
-
-
-
-

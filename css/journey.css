@@ -1,0 +1,181 @@
+/* ===== ПУТЬ СПОРТСМЕНА — editorial storytelling, no scroll-jacking ===== */
+
+.journey {
+  background: var(--paper);
+  padding: clamp(96px, 11vw, 140px) 0 clamp(64px, 8vw, 112px);
+  scroll-margin-top: 96px;
+}
+.journey-inner {
+  width: min(92vw, 1380px);
+  margin-inline: auto;
+}
+
+/* --- head --- */
+.journey-head {
+  position: relative;
+  max-width: 860px;
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+.journey-head .section-eyebrow { margin-bottom: 18px; }
+.journey-title {
+  font-family: var(--ff-display);
+  font-weight: 800;
+  font-size: clamp(38px, 4.4vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  color: var(--graphite);
+  margin: 0;
+}
+.journey-kanji {
+  position: absolute;
+  top: -6px; right: 0;
+  font: 56px/1 var(--ff-jp);
+  color: rgba(198, 40, 40, .12);
+  pointer-events: none;
+}
+
+/* --- layout --- */
+.journey-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+  gap: clamp(36px, 5vw, 80px);
+  align-items: start;
+}
+
+/* --- steps / timeline --- */
+.journey-steps {
+  position: relative;
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex; flex-direction: column;
+  gap: clamp(20px, 2.4vw, 40px);
+}
+.j-line, .j-progress {
+  position: absolute; left: 20px; width: 2px;
+  transform: translateX(-50%);
+}
+.j-line { background: var(--line); }
+.j-progress {
+  background: var(--red);
+  height: 0; z-index: 1;
+  transition: height .5s var(--ease), top .5s var(--ease);
+}
+.j-step {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 40px minmax(0, 1fr);
+  gap: 0 22px; align-items: start;
+  margin: 0; padding: 8px 6px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background .3s var(--ease);
+}
+.j-step:hover { background: rgba(20, 20, 20, .035); }
+.j-rail { display: flex; justify-content: center; padding-top: 6px; }
+.j-dot {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--white); border: 2px solid var(--line);
+  transition: background .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
+}
+.j-active .j-dot {
+  background: var(--red); border-color: var(--red);
+  box-shadow: 0 0 0 4px rgba(198, 40, 40, .14);
+}
+.j-info { min-width: 0; }
+.j-num {
+  display: block;
+  font: 900 clamp(28px, 2.4vw, 38px)/1 var(--ff-display);
+  letter-spacing: -.04em; color: var(--muted);
+  transition: color .4s var(--ease);
+}
+.j-active .j-num { color: var(--red); }
+.j-name {
+  margin: 8px 0 0;
+  font: 800 clamp(18px, 1.5vw, 22px)/1.1 var(--ff-display);
+  text-transform: uppercase; letter-spacing: .02em;
+  color: var(--muted);
+  transition: color .4s var(--ease);
+}
+.j-active .j-name { color: var(--graphite); }
+.j-quote {
+  margin: 12px 0 0;
+  font: 600 clamp(20px, 1.6vw, 26px)/1.35 var(--ff-jp);
+  color: var(--gold);
+  opacity: 0; max-height: 0; overflow: hidden;
+  transition: opacity .45s var(--ease), max-height .5s var(--ease), margin .4s var(--ease);
+}
+.j-active .j-quote { opacity: 1; max-height: 80px; }
+.j-desc {
+  margin: 12px 0 0;
+  color: var(--muted); font-size: clamp(15px, 1.05vw, 17px);
+  line-height: 1.6; max-width: 46ch;
+  opacity: 0; max-height: 0; overflow: hidden;
+  transition: opacity .45s var(--ease), max-height .6s var(--ease);
+}
+.j-active .j-desc { opacity: 1; max-height: 240px; }
+.j-photo { display: none; margin: 16px 0 0; }
+.j-photo img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: 10px; box-shadow: var(--shadow-md);
+}
+
+/* --- media (desktop) --- */
+.journey-media { min-width: 0; }
+.jp-stage {
+  position: relative; width: 100%;
+  aspect-ratio: 4 / 5; max-height: min(620px, 65vh);
+  border-radius: 10px; overflow: hidden;
+  box-shadow: var(--shadow-lg); background: var(--paper-2, #ecebe7);
+}
+.jp-photo {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0; visibility: hidden; transform: scale(.98);
+  transition: opacity .6s var(--ease), transform .7s var(--ease), visibility 0s linear .6s;
+}
+.jp-photo.is-active {
+  opacity: 1; visibility: visible; transform: scale(1);
+  pointer-events: auto; z-index: 1;
+  transition: opacity .6s var(--ease), transform .7s var(--ease), visibility 0s;
+}
+.jp-kanji {
+  position: absolute; z-index: 3; left: 22px; bottom: 18px;
+  color: rgba(255, 255, 255, .85); font: 40px/1 var(--ff-jp);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .45);
+}
+
+/* --- desktop: sticky media so the photo stays visible while reading --- */
+@media (min-width: 1081px) {
+  .journey-media { position: sticky; top: 124px; align-self: start; }
+}
+
+/* --- tablet & mobile: sequential storytelling, one stage per block --- */
+@media (max-width: 1080px) {
+  .journey-title { font-size: clamp(36px, 8.5vw, 50px); }
+  .journey-kanji { font-size: 44px; top: -2px; }
+  .journey-layout { display: block; }
+  .journey-media { display: none; }
+  .j-line, .j-progress { display: none; }
+  .journey-steps { gap: clamp(26px, 6vw, 44px); }
+  .j-step {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 0 16px; cursor: default; padding: 0;
+  }
+  .j-step:hover { background: transparent; }
+  .j-rail { padding-top: 4px; }
+  .j-num { color: var(--red); }
+  .j-name { color: var(--graphite); }
+  .j-quote, .j-desc { opacity: 1; max-height: none; }
+  .j-quote { margin-top: 10px; }
+  .j-desc { margin-top: 10px; }
+  .j-photo { display: block; margin: 18px 0 0; }
+  .j-photo img { max-height: 72vh; }
+  .j-step + .j-step {
+    padding-top: clamp(26px, 6vw, 40px);
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jp-photo, .j-progress, .j-num, .j-name, .j-quote, .j-desc, .j-dot {
+    transition-duration: .01ms !important;
+  }
+}

@@ -47,7 +47,7 @@
       if (e.key === "Escape" && menu.classList.contains("open")) closeMenu();
     });
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 1080 && menu.classList.contains("open")) closeMenu();
+      if (window.innerWidth > 1200 && menu.classList.contains("open")) closeMenu();
     }, { passive: true });
   }
 
@@ -59,7 +59,7 @@
       var target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      var top = target.getBoundingClientRect().top + window.scrollY - 70;
+      var top = target.getBoundingClientRect().top + window.scrollY - 96;
       window.scrollTo({ top: top, behavior: "smooth" });
     });
   });
@@ -89,4 +89,24 @@
       node.addEventListener("click", function () { window.WKC.openLightbox(list, i); });
     });
   }
+
+  /* ---------- Today photo -> lightbox ---------- */
+  var todayPhoto = document.querySelector(".today-photo .g-item");
+  if (todayPhoto && window.WKC && window.WKC.openLightbox) {
+    todayPhoto.addEventListener("click", function () {
+      window.WKC.openLightbox([{ src: todayPhoto.getAttribute("data-full"), cap: todayPhoto.getAttribute("data-cap") || "" }], 0);
+    });
+  }
+
+  /* ---------- Trainer modal gallery -> lightbox ---------- */
+  document.querySelectorAll(".modal").forEach(function (modal) {
+    var mg = modal.querySelectorAll(".mg-item");
+    if (!mg.length || !window.WKC || !window.WKC.openLightbox) return;
+    var list = Array.prototype.map.call(mg, function (n) {
+      return { src: n.getAttribute("data-full"), cap: n.getAttribute("data-cap") || "" };
+    });
+    mg.forEach(function (node, i) {
+      node.addEventListener("click", function () { window.WKC.openLightbox(list, i); });
+    });
+  });
 })();

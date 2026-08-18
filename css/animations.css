@@ -74,4 +74,11 @@ html.js [data-reveal-stagger].is-visible > *:nth-child(6) { transition-delay: .4
   }
   [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; }
   .hero-title .line, .hero-eyebrow, .hero-sub, .hero-desc, .hero-cta, .hero-facts, .hero-photo { opacity: 1 !important; animation: none !important; }
+  .journey-stage { opacity: .55 !important; }
+  .journey-stage.j-active { opacity: 1 !important; }
+  .journey-stage .j-title,
+  .journey-stage .j-quote,
+  .journey-stage .j-desc { max-height: none !important; opacity: 1 !important; }
+  .jp-slide { opacity: 0 !important; }
+  .jp-slide.jp-active { opacity: 1 !important; }
 }
