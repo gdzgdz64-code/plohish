@@ -91,7 +91,7 @@
   }
 
   /* ---------- Today photo -> lightbox ---------- */
-  var todayPhoto = document.querySelector(".today-photo .g-item");
+  var todayPhoto = document.querySelector(".today .g-item");
   if (todayPhoto && window.WKC && window.WKC.openLightbox) {
     todayPhoto.addEventListener("click", function () {
       window.WKC.openLightbox([{ src: todayPhoto.getAttribute("data-full"), cap: todayPhoto.getAttribute("data-cap") || "" }], 0);
